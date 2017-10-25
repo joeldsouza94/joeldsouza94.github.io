@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Merry Christmas!</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="shortcut icon" href="img/beach.png" />
+  <link rel="stylesheet" href="https://www.w3schools.com/lib/w3.css">  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">  
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
+  
+  <script src="js/snowstorm.js"></script>
+  <script>
+// append the snow to this element (by ID or direct DOM node reference)
+     snowStorm.targetElement = 'posts';
+	  snowStorm.excludeMobile = false;
+  </script>
+	
+  <link rel="stylesheet" href="css/style.css">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<!-- Icon Bar (Sidenav - hidden on small screens)
+        <script type="text/javascript" src="js/jquery.touchSwipe.min.js"></script> 
+		
+		-->
+		
+			<script id='code_1'>
+			/*
+				$(function() {			
+					//Enable swiping...
+					$("#main").swipe( {
+						//Generic swipe handler for all directions
+						swipeLeft:function(event, direction, distance, duration, fingerCount) {
+							if(direction=="left")
+							plusDivs(-1);
+						},
+						swipeRight:function(event, direction, distance, duration, fingerCount) {
+							if(direction=="left")
+							plusDivs(-1);
+						},
+						//Default is 75px, set to 0 for demo so any distance triggers swipe
+					   threshold:0
+					});
+				});
+				*/
+			</script>
+			
+</head>
+
+<body class="w3-black">
+
+<!-- Icon Bar (Sidenav - hidden on small screens) -->
+<nav class="w3-sidenav w3-center w3-small w3-hide-small">
+  <!-- Avatar image in top left corner -->
+  <img src="img/beach.jpg" style="width:100%" class="w3-opacity w3-grayscale">
+  <a id="sideNavLinkHome" class="sideNavLink w3-padding-large w3-hover-black" href="index.html">
+    <i class="fa fa-home w3-xxlarge"></i>
+    <p>HOME</p>
+  </a>
+  <a id="sideNavLinkPosts" class="sideNavLink w3-padding-large w3-hover-black" href="posts.html">
+    <i class="fa fa-eye w3-xxlarge"></i>
+    <p>POSTS</p>
+  </a>
+  <a id="sideNavLinkContact" class="sideNavLink w3-padding-large w3-hover-black" href="contact.html">
+    <i class="fa fa-envelope w3-xxlarge"></i>
+    <p>CONTACT</p>
+  </a>
+  <a class="sideNavLink w3-padding-large w3-hover-black w3-black" href="#" onclick="showDivs(1);">
+    <i class="fa fa-tree w3-xxlarge" style="color:red"></i>
+    <p>CHRISTMAS WISHES</p>
+  </a>
+</nav>
+
+<!-- Navbarmenu on small screens (Hidden on medium and large screens) -->
+<div class="w3-top w3-hide-large w3-hide-medium w3-border-bottom w3-border-grey">
+  <ul class="w3-navbar w3-black">
+    <li class="w3-opennav w3-right">
+      <a class="w3-padding-large w3-border-left w3-border-grey" href="javascript:void(0)" onclick="navToggle()" title="Toggle Navigation Menu"><i class="fa fa-bars"></i></a>
+    </li>
+  <li id="activeNavLink" class="w3-left-align w3-padding-large w3-text-grey">CHRISTMAS WISHES</li>
+  </ul>
+</div>
+
+<!-- Navbar on small screens -->
+<div id="smallNav" class="w3-hide w3-hide-large w3-hide-medium w3-top w3-border-bottom w3-border-grey w3-round-xlarge">
+  <ul class="w3-navbar w3-left-align w3-black">
+    <li class="w3-opennav w3-right w3-hover-opacity-off">
+      <a class="w3-padding-large w3-border-left w3-border-bottom w3-border-grey" href="javascript:void(0)" onclick="navToggle()" title="Toggle Navigation Menu"><i class="fa fa-bars"></i></a>
+    </li>
+    <li><a href="index.html" id="topNavLinkHome" class="topNavLink w3-hover-none w3-hover-text-grey w3-padding-large" onclick="navToggle();">HOME</a></li>
+    <li><a id="topNavLinkPosts" class="topNavLink w3-padding-large w3-hover-opacity" href="posts.html" onclick="navToggle();">POSTS</a></li>
+    <li><a id="topNavLinkContact" class="topNavLink w3-padding-large w3-hover-opacity" href="contact.html" onclick="navToggle();">CONTACT</a></li>
+    <li><a class="topNavLink w3-padding-large w3-hover-opacity" href="#" onclick="navToggle();showDivs(1);">CHRISTMAS WISHES</a></li>
+  </ul>
+</div>
+
+<!-- Page Content -->
+<div class="w3-padding-xxlarge w3-content w3-display-container" id="main">
+
+<div class="w3-padding-32">
+<audio controls id="myAudio">
+  <source src="audio/christmassong.mp3" type="audio/mpeg">
+Your browser does not support the audio element.
+</audio>
+</div>
+<!-- Posts Section -->
+  <div class="w3-content w3-justify w3-text-grey w3-padding-64 mySlides w3-card-8" id="posts" style="background: url(img/christmaswallpaper.jpg) no-repeat center fixed;background-size: contain">
+    <h2 class="w3-text-light-grey">Hi there!</h2>
+    <hr style="width:200px" class="w3-opacity">
+    <p>How's it going?
+    </p>
+    <p style="font-size:18px;" class="w3-text-light-grey"> First of all...Merry Christmas!</p>
+    <p style="font-size:19px;" class="w3-padding-16 w3-text-sand">From miles away, no matter how far we are, the warmth of Christmas brings us closer together. May you have a wonderful holiday!</p>
+    <br>
+   
+<!-- End Posts Section -->
+  </div>
+  
+<!-- Posts Section -->
+  <div class="w3-content w3-justify w3-text-grey w3-padding-64 mySlides w3-card-8" id="posts">
+      <h3 class="w3-text-light-grey">The Best Christmas Gift!</h3>
+    <hr style="width:200px" class="w3-opacity">
+    <img src="img/birth.jpg" alt="Lights" class="w3-image">
+   
+<!-- End Posts Section -->
+  </div>
+  
+<!-- Posts Section -->
+  <div class="w3-content w3-justify w3-text-grey w3-padding-64 mySlides w3-card-8" id="posts" style="background: url(img/jesuslight.jpg) no-repeat fixed bottom;background-size: 100% 80%;">
+    <h3 class="w3-text-light-grey">LIGHTtheWORLD</h3>
+    <hr style="width:200px" class="w3-opacity">
+	<p>A small christmas message.
+    </p>
+    <h5 class="w3-padding-16 w3-text-light-grey">Since a new star first appeared above Bethlehem, Christmas has been a season of light, reminding us that Jesus Christ is the light of the world. Together, we can celebrate His birth by making the world a brighter place. All we have to do is follow Him—His life, His example, and His teachings. In doing so, we can help LIGHTtheWORLD.</h5>
+    <br>
+   
+<!-- End Posts Section -->
+  </div>
+  
+<!-- Posts Section -->
+  <div class="w3-content w3-justify w3-text-grey w3-padding-64 mySlides" id="posts">
+  <div class="w3-display-container w3-text-white">
+    <img src="img/tree3.jpg" alt="Lights" class="w3-image">
+	<div class="w3-display-topleft w3-container"><h6 class="w3-padding-16 w3-text-light-grey">So that's it. I hope you liked this. Wish you a Merry Christmas again.</h6></div>
+    <div class="w3-display-bottomright w3-container"><h6 class="w3-padding-top-24 w3-text-light-grey">Thanks for your time. See you soon!</h6></div>
+  </div>
+  
+<!-- Footer -->
+  <footer class="w3-content w3-padding-64 w3-text-grey w3-xlarge">
+    <a href="https://www.facebook.com/joel.dsouza.14" target="blank"><i class="fa fa-facebook-official w3-hover-text-indigo"></i></a>
+    <a href="https://www.instagram.com/j0el_ds0uza" target="blank"><i class="fa fa-instagram w3-hover-text-purple"></i></a>
+    <a href="https://www.snapchat.com/add/joel.dsouza94" target="blank"><i class="fa fa-snapchat w3-hover-text-yellow"></i></a>
+    <a href="https://twitter.com/joelDsouza94" target="blank"><i class="fa fa-twitter w3-hover-text-light-blue"></i></a>
+    <p class="w3-medium">Powered by <span class="w3-hover-text-green">you</span>.</p>
+<!-- End footer -->
+  </footer>
+   
+<!-- End Posts Section -->
+  </div>
+
+  <a id="leftbutton" class="w3-btn-floating w3-display-left w3-grey w3-hover-text-red" onclick="plusDivs(-1)">&#10094;</a>
+  <a id="rightbutton" class="w3-btn-floating w3-display-right w3-grey w3-hover-text-red" onclick="plusDivs(1)">&#10095;</a>
+
+
+<!-- END PAGE CONTENT -->
+</div>
+
+<!-- commonjs for small navbar -->
+<script src="js/commonjs.js">
+</script>
+
+
+
+<script>
+// slide
+var slideIndex = 1;
+showDivs(slideIndex);
+
+function plusDivs(n) {
+  showDivs(slideIndex += n);
+}
+
+function currentDiv(n) {
+  showDivs(slideIndex = n);
+}
+
+function showDivs(n) {
+  console.log("showDivs " + n);
+  var i;
+  if (slideIndex == 1) {
+    document.getElementById("leftbutton").style.display = "none";
+  }
+  else {
+    document.getElementById("leftbutton").style.display = "block";
+  }
+  if (slideIndex == 4) {
+    document.getElementById("rightbutton").style.display = "none";
+  }
+  else {
+    document.getElementById("rightbutton").style.display = "block";
+  }
+  var x = document.getElementsByClassName("mySlides");
+  //var dots = document.getElementsByClassName("demo");
+  if (n > x.length) {slideIndex = 1}    
+  if (n < 1) {slideIndex = x.length}
+  for (i = 0; i < x.length; i++) {
+     x[i].style.display = "none";  
+  }
+  /*
+  for (i = 0; i < dots.length; i++) {
+     dots[i].className = dots[i].className.replace(" w3-white", "");
+  }
+  */
+  x[slideIndex-1].style.display = "block";  
+  //dots[slideIndex-1].className += " w3-white";
+}
+</script>
+
+
+<script>
+
+var vid = document.getElementById("myAudio");
+    vid.autoplay = true;
+    vid.load();
+</script> 
+
+</body>
+
+</html>

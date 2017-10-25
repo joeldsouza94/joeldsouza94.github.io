@@ -1,0 +1,25 @@
+  body, h1,h2,h3,h4,h5,h6 {font-family: "Montserrat", sans-serif}
+/* Remove margins from "page content" on small screens */
+  #main {margin-left: 0}
+/* For medium and large screens */
+  @media only screen and (min-width: 600px) {
+/* Set the width of the sidenav to 120px */
+    .w3-sidenav {width: 120px;background: #222;}
+/* Add a left margin to the "page content" that matches the width of the sidenav (120px) */
+    #main {margin-left: 120px}
+  }
+  @media only screen and (min-width: 768px) {
+    /* For desktop: */
+    #main {margin-left: 220px}
+  }
+  #post1 {
+/*
+  * absolute-positioned example, snow is appended to this element.
+  * overflow: hidden is recommended for best effect.
+*/
+ position: relative;
+ overflow: hidden;
+}
+.mySlides {display:none}
+.w3-left, .w3-right, .w3-badge {cursor:pointer}
+.w3-badge {height:13px;width:13px;padding:0}
