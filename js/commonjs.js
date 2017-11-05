@@ -1,7 +1,6 @@
 // Used to get the small navbar
 var smallNav = document.getElementById("smallNav");
-//admin validated  
-var validated = localStorage.getItem("validated");
+//console.log(smallNav);
 
 // Used to get the active nav link
 //var activeNavLinkElement = document.getElementById('activeNavLink');
@@ -26,7 +25,7 @@ else {
 // Used to toggle the menu on small screens when clicking on the menu button
 function navToggle() {
 //alert(smallNav.className.indexOf("w3-show"));
-console.log("navToggle");
+//console.log("navToggle");
     if (smallNav.className.indexOf("w3-show") == -1) {
         smallNav.className += " w3-show";
     } else { 
@@ -68,6 +67,8 @@ $(document).ready(function(){
 
 //FOR ADMIN LOGIN
 function admin(){
+  //admin validated  
+  var validated = localStorage.getItem("validated");
   if (validated == 'yes'){
     window.location = "logout.html";
   } else {
