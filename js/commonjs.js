@@ -1,5 +1,7 @@
 // Used to get the small navbar
 var smallNav = document.getElementById("smallNav");
+//admin validated  
+var validated = localStorage.getItem("validated");
 
 // Used to get the active nav link
 //var activeNavLinkElement = document.getElementById('activeNavLink');
@@ -31,6 +33,8 @@ console.log("navToggle");
         smallNav.className = smallNav.className.replace(" w3-show", "");
     }
 }
+localStorage.setItem("username", "Joel");
+localStorage.setItem("password", "joel94");
 /*
 // To display active link in navbar
 function activeNavLink(navLink) {
@@ -60,3 +64,13 @@ $(document).ready(function(){
     }        
 })
 });
+
+
+//FOR ADMIN LOGIN
+function admin(){
+  if (validated == 'yes'){
+    window.location = "logout.html";
+  } else {
+    window.location = "adminlogin.html";
+  }
+}

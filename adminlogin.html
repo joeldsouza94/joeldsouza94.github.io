@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-  <title>Contact</title>
+  <title>Admin Login</title>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="shortcut icon" href="img/beach.png" />
@@ -12,6 +12,14 @@
   </script>
   <link rel="stylesheet" href="css/style.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  <!-- commonjs for small navbar and admin validations-->
+  <script src="js/commonjs.js">
+  </script>
+  <script type="text/javascript">
+    if (validated == 'yes') {
+      window.location = "logout.html";
+    }
+  </script>
 </head>
 
 <body class="w3-black">
@@ -28,16 +36,14 @@
     <i class="fa fa-eye w3-xxlarge"></i>
     <p>POSTS</p>
   </a>
-  <a id="sideNavLinkContact" class="sideNavLink w3-padding-large w3-hover-black w3-black" href="#contact">
+  <a id="sideNavLinkContact" class="sideNavLink w3-padding-large w3-hover-black" href="contact.html">
     <i class="fa fa-envelope w3-xxlarge"></i>
     <p>CONTACT</p>
   </a>
-  <!--
-  <a class="sideNavLink w3-padding-large w3-hover-black" href="christmaswishes.html" onclick="activeNavLink(event);">
-    <i class="fa fa-tree w3-xxlarge" style="color:red"></i>
-    <p>CHRISTMAS WISHES</p>
+  <a class="sideNavLink w3-padding-large w3-hover-black w3-black" href="#main">
+    <i class="fa fa-lock w3-xxlarge" style="color:red"></i>
+    <p>ADMIN LOGIN</p>
   </a>
-  -->
 </nav>
 
 <!-- Navbarmenu on small screens (Hidden on medium and large screens) -->
@@ -46,7 +52,7 @@
     <li class="w3-opennav w3-right">
       <a class="w3-padding-large w3-border-left w3-border-grey" href="javascript:void(0)" onclick="navToggle()" title="Toggle Navigation Menu"><i class="fa fa-bars"></i></a>
     </li>
-  <li id="activeNavLink" class="w3-left-align w3-padding-large w3-text-grey">CONTACT</li>
+  <li id="activeNavLink" class="w3-left-align w3-padding-large w3-text-grey">ADMIN LOGIN</li>
   </ul>
 </div>
 
@@ -58,10 +64,8 @@
     </li>
     <li><a href="index.html" id="topNavLinkHome" class="topNavLink w3-hover-none w3-hover-text-grey w3-padding-large" onclick="navToggle();">HOME</a></li>
     <li><a id="topNavLinkPosts" class="topNavLink w3-padding-large w3-hover-opacity" href="posts.html" onclick="navToggle();">POSTS</a></li>
-    <li><a id="topNavLinkContact" class="topNavLink w3-padding-large w3-hover-opacity" href="#contact" onclick="navToggle();">CONTACT</a></li>
-    <!--
-    <li><a class="topNavLink w3-padding-large w3-hover-opacity" href="christmaswishes.html" onclick="activeNavLink(event);navToggle();">CHRISTMAS WISHES</a></li>
-    -->
+    <li><a id="topNavLinkContact" class="topNavLink w3-padding-large w3-hover-opacity" href="contact.html" onclick="navToggle();">CONTACT</a></li>
+    <li><a class="topNavLink w3-padding-large w3-hover-opacity" href="#main" onclick="navToggle();">ADMIN LOGIN</a></li>
   </ul>
 </div>
 
@@ -97,15 +101,28 @@
 <!-- End Posts Section 
   </div>
 -->
-<!-- Contact Section -->
+<!-- Login Section -->
   <div class="w3-padding-64 w3-content w3-text-grey" id="contact">
-    <h2 class="w3-text-light-grey">Contact Me</h2>
+    <h2 class="w3-text-light-grey">Admin Login</h2>
     <hr style="width:200px" class="w3-opacity">
 
     <div class="w3-section">
-      <p><i class="fa fa-map-marker fa-fw w3-text-white w3-xxlarge w3-margin-right"></i> India</p>
-      <p><i class="fa fa-phone fa-fw w3-text-white w3-xxlarge w3-margin-right"></i> +91 9619588534</p>
-      <p><i class="fa fa-envelope fa-fw w3-text-white w3-xxlarge w3-margin-right"> </i> thisisjoeldsouza@gmail.com</p>
+      <form id="loginform" class="w3-form" method="post" action="javascript:validateUser();">
+        <input type="text" id="username" placeholder="Username" required />
+        <br/>
+        <br/>
+        <input type="password" id="password" placeholder="Password" required />
+        <br/>
+        <br/>
+        <br/>
+        <div id="errordiv" class="w3-panel w3-blue w3-display-container">
+          <span id="errorspan" onclick="this.parentElement.style.display='none'"
+          class="w3-button w3-blue w3-large w3-display-topright">&times;</span>
+          <h3 id="errortitle" >Info!</h3>
+          <p id="errordetails" >This function is only for the Admin.</p>
+        </div>
+        <input type="submit" value="Login">
+      </form>
     </div><br>
     <!--
     <p>Lets get in touch. Send me a message:</p>
@@ -144,6 +161,35 @@
 <script src="js/commonjs.js">
 </script>
 
+<!-- validate credentials -->
+<script>
+  var errordiv = document.getElementById("errordiv");
+  var errorspan = document.getElementById("errorspan");
+  var errortitle = document.getElementById("errortitle");
+  var errordetails = document.getElementById("errordetails");
+  var loginform = document.getElementById("loginform");
+  function validateUser(){
+    console.log("validateUser");
+    var enteredUsername = document.getElementById("username").value;
+    var username = localStorage.getItem("username");
+    var enteredPassword = document.getElementById("password").value;
+    var password = localStorage.getItem("password");
+    if (enteredUsername == username && enteredPassword == password) {
+      console.log("validated");
+      localStorage.setItem("validated", "yes");
+      window.location = "index.html";
+    } else {
+      console.log("incorrect");
+      localStorage.setItem("validated", "no");
+      loginform.reset();
+      errordiv.style.display = 'block';
+      errordiv.className = errordiv.className.replace("w3-blue", "w3-red");
+      errorspan.className = errorspan.className.replace("w3-blue", "w3-red");
+      errortitle.innerHTML = "Incorrect credentials!"
+      errordetails.innerHTML = "Please enter correct credentials and try again."
+    }
+  }
+</script>
 
 </body>
 
