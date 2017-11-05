@@ -162,7 +162,7 @@
 <script>
 $(document).ready(function(){
     $("#getjson").click(function(){
-        $.getJSON("https://github.com/joeldsouza94/joeldsouza94.github.io/blob/master/json/example.json", function(result){
+        $.getJSON("json/example.json", function(result){
             $.each(result, function(i, field){
                 $("#jsondata").append(field + " ");
             });
