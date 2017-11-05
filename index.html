@@ -10,11 +10,13 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">  
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
   <script src="js/snowstorm.js"></script>
+  <!--snow effect
   <script>
     // append the snow to this element (by ID or direct DOM node reference)
     snowStorm.targetElement = 'post1';
 	  snowStorm.excludeMobile = false;
   </script>
+  -->
   </script>
   <link rel="stylesheet" href="css/style.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
@@ -77,6 +79,8 @@
   <header class="w3-container w3-padding-32 w3-center w3-black" id="home">
     <h1 class="w3-jumbo">I'm Joel D'souza.</h1>
     <p>Just another human.</p>
+    <button id="getjson">Get JSON data</button>
+    <div id="jsondata"></div>
     <img src="img/beach.jpg" alt="boy" class="w3-image w3-grayscale" width="992" height="1108">
   </header>
 
@@ -155,6 +159,17 @@
 <script src="js/timeDifferenceFormat.js">
 </script>
 
+<script>
+$(document).ready(function(){
+    $("#getjson").click(function(){
+        $.getJSON("https://github.com/joeldsouza94/joeldsouza94.github.io/blob/master/json/example.json", function(result){
+            $.each(result, function(i, field){
+                $("#jsondata").append(field + " ");
+            });
+        });
+    });
+});
+</script>
 </body>
 
 </html>
