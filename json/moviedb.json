@@ -1,16 +1,10 @@
-{
-  "movies": [
-    {
-      "title": "Ford",
-      "year": "zxs"
-    },
-    {
-      "title": "asdas",
-      "year": "12132"
-    },
-    {
-      "title": "1321",
-      "year": "1231231"
-    }
-  ]
-}
+[
+  {
+    "title": "Ford",
+    "year": "zxs"
+  },
+  {
+    "title": "Ford",
+    "year": "zxs"
+  }
+]
