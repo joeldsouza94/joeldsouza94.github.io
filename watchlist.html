@@ -156,8 +156,12 @@
 
 <script type="text/javascript">
   function addMovie(){
-    $.getJSON( "json/moviedb.json", function( data ) {
-      console.log(data);
+    $.getJSON( "json/moviedb.json", function( response ) {
+      var trHTML = '';
+        $.each(response, function (i, item) {
+            trHTML += '<tr><td>' + item.title + '</td><td>' + item.year + '</td></tr>';
+        });
+        $('#movietable').append(trHTML);
     });
   }
   addMovie();
