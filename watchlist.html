@@ -16,8 +16,24 @@
     //admin validated  
     var validated = localStorage.getItem("validated");
     if (validated == 'yes') {
-      //window.location = "adminlogin.html";
+      $(document).ready(function(){
+        $("#moviedblink").show();
+      });
+    } else {
+      $(document).ready(function(){
+        $("#moviedblink").hide();
+      });
     }
+    //get movies
+    var trHTMLMovies = '';
+    function getMovies(){
+      $.getJSON( "json/moviedb.json", function( response ) {
+          $.each(response, function (i, item) {
+              trHTMLMovies += '<tr><td>' + item.title + '</td><td>' + item.year + '</td></tr>';
+          });
+      });
+    }
+    getMovies();
   </script>
 </head>
 
@@ -35,13 +51,13 @@
     <i class="fa fa-eye w3-xxlarge"></i>
     <p>POSTS</p>
   </a>
+  <a class="sideNavLink w3-padding-large w3-hover-black w3-black" href="#main">
+    <i class="fa fa-video-camera w3-xxlarge"></i>
+    <p>WATCHLIST</p>
+  </a>
   <a id="sideNavLinkContact" class="sideNavLink w3-padding-large w3-hover-black" href="contact.html">
     <i class="fa fa-envelope w3-xxlarge"></i>
     <p>CONTACT</p>
-  </a>
-  <a class="sideNavLink w3-padding-large w3-hover-black w3-black" href="#main">
-    <i class="fa fa-unlock w3-xxlarge" style="color:green"></i>
-    <p>WATCHLIST</p>
   </a>
 </nav>
 
@@ -63,8 +79,8 @@
     </li>
     <li><a href="index.html" id="topNavLinkHome" class="topNavLink w3-hover-none w3-hover-text-grey w3-padding-large" onclick="navToggle();">HOME</a></li>
     <li><a id="topNavLinkPosts" class="topNavLink w3-padding-large w3-hover-opacity" href="posts.html" onclick="navToggle();">POSTS</a></li>
-    <li><a id="topNavLinkContact" class="topNavLink w3-padding-large w3-hover-opacity" href="contact.html" onclick="navToggle();">CONTACT</a></li>
     <li><a class="topNavLink w3-padding-large w3-hover-opacity" href="#main" onclick="navToggle();">WATCHLIST</a></li>
+    <li><a id="topNavLinkContact" class="topNavLink w3-padding-large w3-hover-opacity" href="contact.html" onclick="navToggle();">CONTACT</a></li>
   </ul>
 </div>
 
@@ -101,11 +117,12 @@
   </div>
 -->
 <!-- Login Section -->
-  <div class="w3-padding-64 w3-content w3-text-grey" id="contact">
+  <div class="w3-padding-64 w3-content w3-text-grey" id="watchlist">
     <h2 class="w3-text-light-grey">Watchlist</h2>
     <hr style="width:200px" class="w3-opacity">
 
     <div class="w3-section">
+      <a class="w3-button" href="https://jsoneditoronline.org/?id=eed8b921d234a2c66290ee52d4c10fbd" id="moviedblink" target="blank">Edit moviedb.json</a>
       <table id="movietable" class="w3-table w3-card-4">
         <tr>
           <th>Movie Title</th>
@@ -150,17 +167,9 @@
 <script src="js/commonjs.js">
 </script>
 
+<!-- append movies-->
 <script type="text/javascript">
-  function addMovies(){
-    $.getJSON( "json/moviedb.json", function( response ) {
-      var trHTML = '';
-        $.each(response, function (i, item) {
-            trHTML += '<tr><td>' + item.title + '</td><td>' + item.year + '</td></tr>';
-        });
-        $('#movietable').append(trHTML);
-    });
-  }
-  addMovies();
+  $('#movietable').append(trHTMLMovies);
 </script>
 
 </body>
