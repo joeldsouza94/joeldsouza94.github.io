@@ -157,9 +157,12 @@
 <script type="text/javascript">
   function addMovie(){
     $.getJSON( "json/moviedb.json", function( response ) {
+      console.log("response");
+      console.log(response);
       var trHTML = '';
         $.each(response, function (i, item) {
             trHTML += '<tr><td>' + item.title + '</td><td>' + item.year + '</td></tr>';
+            console.log(trHTML);
         });
         $('#movietable').append(trHTML);
     });
