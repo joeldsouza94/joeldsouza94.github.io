@@ -108,12 +108,8 @@
     <div class="w3-section">
       <table id="movietable" class="w3-table w3-card-4">
         <tr>
-          <th>Movie Name</th>
-          <th>Added</th>
-        </tr>
-        <tr>
-          <td>sample Name</td>
-          <td>sample Added</td>
+          <th>Movie Title</th>
+          <th>Year</th>
         </tr>
       </table>
     </div><br>
@@ -155,19 +151,16 @@
 </script>
 
 <script type="text/javascript">
-  function addMovie(){
+  function addMovies(){
     $.getJSON( "json/moviedb.json", function( response ) {
-      console.log("response");
-      console.log(response);
       var trHTML = '';
         $.each(response, function (i, item) {
             trHTML += '<tr><td>' + item.title + '</td><td>' + item.year + '</td></tr>';
-            console.log(trHTML);
         });
         $('#movietable').append(trHTML);
     });
   }
-  addMovie();
+  addMovies();
 </script>
 
 </body>
