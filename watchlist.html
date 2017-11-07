@@ -24,14 +24,14 @@
     var trHTMLMovies = '';
     function getMovies(){
       $.getJSON( "json/moviedb.json", function( response ) {
-          $.each(response, function (i, item) {
-              trHTMLMovies += '<tr><td>' + item.title + '</td><td>' + item.year + '</td></tr>';
-          });
+        $.each(response, function (i, item) {
+            trHTMLMovies += '<tr><td>' + item.title + '</td><td>' + item.year + '</td></tr>';
+        });
+        $('#movietable').append(trHTMLMovies);
       });
     }
     $(document).ready(function(){
       getMovies();
-      $('#movietable').append(trHTMLMovies);
     });
   </script>
 </head>
