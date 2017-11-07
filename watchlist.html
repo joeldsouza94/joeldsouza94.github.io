@@ -19,10 +19,6 @@
       $(document).ready(function(){
         $("#moviedblink").show();
       });
-    } else {
-      $(document).ready(function(){
-        $("#moviedblink").hide();
-      });
     }
     //get movies
     var trHTMLMovies = '';
@@ -33,8 +29,8 @@
           });
       });
     }
-    getMovies();
     $(document).ready(function(){
+      getMovies();
       $('#movietable').append(trHTMLMovies);
     });
   </script>
@@ -125,7 +121,7 @@
     <hr style="width:200px" class="w3-opacity">
 
     <div class="w3-section">
-      <a class="w3-button" href="https://jsoneditoronline.org/?id=eed8b921d234a2c66290ee52d4c10fbd" id="moviedblink" target="blank">Edit moviedb.json</a>
+      <a class="w3-button" href="https://jsoneditoronline.org/?id=eed8b921d234a2c66290ee52d4c10fbd" id="moviedblink" target="blank" style="display: none;">Edit moviedb.json</a>
       <table id="movietable" class="w3-table w3-card-4">
         <tr>
           <th>Movie Title</th>
@@ -168,11 +164,6 @@
 
 <!-- commonjs for small navbar and admin validations-->
 <script src="js/commonjs.js">
-</script>
-
-<!-- append movies-->
-<script type="text/javascript">
-  $('#movietable').append(trHTMLMovies);
 </script>
 
 </body>
