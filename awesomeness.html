@@ -18,9 +18,13 @@ img {margin-bottom: -7px}
   <a href="javascript:void(0)" onclick="w3_close()" class="w3-button w3-black w3-xxlarge w3-padding w3-display-topright" style="padding:6px 24px">
     <i class="fa fa-remove"></i>
   </a>
-  <div class="w3-bar-block w3-center">
-    <a href="#" class="w3-bar-item w3-button w3-text-grey w3-hover-black">Home</a>
-    <a href="#" class="w3-bar-item w3-button w3-text-grey w3-hover-black">Language List</a>
+  <div class="w3-bar-block w3-center" id="contentMessage" style="display:none">
+    <p class="w3-medium">Click the images</p>
+  </div>
+  <div class="w3-bar-block w3-center" id="contentBar" style="display:none">
+    <h1><b>AWESOMENESS</b></h1>
+    <i class="fa fa-play"></i>
+    <p class="w3-small">English</p>
   </div>
 </nav>
 
@@ -41,30 +45,30 @@ img {margin-bottom: -7px}
 <!-- Photo Grid -->
 <div class="w3-row" id="myGrid" style="margin-bottom:128px">
   <div class="w3-third">
-    <img src="AWESOMENESS/Images/Maple/1.jpg" style="width:100%">
-    <img src="AWESOMENESS/Images/Maple/2.jpg" style="width:100%">
-    <img src="AWESOMENESS/Images/Maple/3.jpg" style="width:100%">
-    <img src="AWESOMENESS/Images/Maple/4.jpg" style="width:100%">
-    <img src="AWESOMENESS/Images/Maple/5.jpg" style="width:100%">
-    <img src="AWESOMENESS/Images/Maple/6.jpg" style="width:100%">
+    <img class="w3-hover-opacity" src="AWESOMENESS/Images/Maple/1.jpg" style="width:100%" onclick="openContent()">
+    <img class="w3-hover-opacity" src="AWESOMENESS/Images/Maple/2.jpg" style="width:100%" onclick="openContent()">
+    <img class="w3-hover-opacity" src="AWESOMENESS/Images/Maple/3.jpg" style="width:100%" onclick="openContent()">
+    <img class="w3-hover-opacity" src="AWESOMENESS/Images/Maple/4.jpg" style="width:100%" onclick="openContent()">
+    <img class="w3-hover-opacity" src="AWESOMENESS/Images/Maple/5.jpg" style="width:100%" onclick="openContent()">
+    <img class="w3-hover-opacity" src="AWESOMENESS/Images/Maple/6.jpg" style="width:100%" onclick="openContent()">
   </div>
 
   <div class="w3-third">
-    <img src="AWESOMENESS/Images/Lucas/1.jpg" style="width:100%">
-    <img src="AWESOMENESS/Images/Lucas/2.jpg" style="width:100%">
-    <img src="AWESOMENESS/Images/Lucas/3.jpg" style="width:100%">
-    <img src="AWESOMENESS/Images/Lucas/4.jpg" style="width:100%">
-    <img src="AWESOMENESS/Images/Lucas/5.jpg" style="width:100%">
-    <img src="AWESOMENESS/Images/Lucas/6.jpg" style="width:100%">
+    <img class="w3-hover-opacity" src="AWESOMENESS/Images/Lucas/1.jpg" style="width:100%" onclick="openContent()">
+    <img class="w3-hover-opacity" src="AWESOMENESS/Images/Lucas/2.jpg" style="width:100%" onclick="openContent()">
+    <img class="w3-hover-opacity" src="AWESOMENESS/Images/Lucas/3.jpg" style="width:100%" onclick="openContent()">
+    <img class="w3-hover-opacity" src="AWESOMENESS/Images/Lucas/4.jpg" style="width:100%" onclick="openContent()">
+    <img class="w3-hover-opacity" src="AWESOMENESS/Images/Lucas/5.jpg" style="width:100%" onclick="openContent()">
+    <img class="w3-hover-opacity" src="AWESOMENESS/Images/Lucas/6.jpg" style="width:100%" onclick="openContent()">
   </div>
 
   <div class="w3-third">
-    <img src="AWESOMENESS/Images/Hamlet/1.jpg" style="width:100%">
-    <img src="AWESOMENESS/Images/Hamlet/2.jpg" style="width:100%">
-    <img src="AWESOMENESS/Images/Hamlet/3.jpg" style="width:100%">
-    <img src="AWESOMENESS/Images/Hamlet/4.jpg" style="width:100%">
-    <img src="AWESOMENESS/Images/Hamlet/5.jpg" style="width:100%">
-    <img src="AWESOMENESS/Images/Hamlet/6.jpg" style="width:100%">
+    <img class="w3-hover-opacity" src="AWESOMENESS/Images/Hamlet/1.jpg" style="width:100%" onclick="openContent()">
+    <img class="w3-hover-opacity" src="AWESOMENESS/Images/Hamlet/2.jpg" style="width:100%" onclick="openContent()">
+    <img class="w3-hover-opacity" src="AWESOMENESS/Images/Hamlet/3.jpg" style="width:100%" onclick="openContent()">
+    <img class="w3-hover-opacity" src="AWESOMENESS/Images/Hamlet/4.jpg" style="width:100%" onclick="openContent()">
+    <img class="w3-hover-opacity" src="AWESOMENESS/Images/Hamlet/5.jpg" style="width:100%" onclick="openContent()">
+    <img class="w3-hover-opacity" src="AWESOMENESS/Images/Hamlet/6.jpg" style="width:100%" onclick="openContent()">
   </div>
 </div>
 
@@ -97,10 +101,21 @@ function myFunction() {
 function w3_open() {
   document.getElementById("mySidebar").style.width = "100%";
   document.getElementById("mySidebar").style.display = "block";
+  document.getElementById("contentMessage").style.display = "block";
 }
 
 function w3_close() {
   document.getElementById("mySidebar").style.display = "none";
+  document.getElementById("contentBar").style.display = "none";
+  document.getElementById("contentMessage").style.display = "none";
+}
+
+// Open sidebar with content
+function openContent() {
+  document.getElementById("contentMessage").style.display = "none";
+  document.getElementById("mySidebar").style.width = "100%";
+  document.getElementById("mySidebar").style.display = "block";
+  document.getElementById("contentBar").style.display = "block";
 }
 </script>
 
