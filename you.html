@@ -12,25 +12,71 @@ body {font-family: "Montserrat", sans-serif}
 </style>
 <body class="w3-light-grey">
 
-
+<!-- You header -->
 <div class="w3-container">
-<div class="w3-row">
-<div class="w3-third w3-section">
-</div>
+	<div class="w3-row">
 
-<div class="w3-third w3-section">
-<div class="w3-card-4">
-<img id="youImg" src="you/images/1.jpg" style="width:100%">
-<div class="w3-container w3-white w3-opacity">
-<h4 id="youText">You.</h4>
-</div>
-</div>
+		<div class="w3-third w3-section">
+		</div>
 
-<div class="w3-third w3-section">
-</div>
+		<div class="w3-third w3-section w3-opacity w3-small">
+			
+			<div class="w3-panel w3-blue w3-display-container">
+				<span onclick="this.parentElement.style.display='none'" class="w3-button w3-medium w3-display-topright">&times;</span>
+				<p>Enter a number between 1 to <span id="youContentLengthElement"></span> in the box below & click Go.
+				</p>
+			</div>
+			<div class="w3-panel w3-red w3-display-container">
+				<span onclick="this.parentElement.style.display='none'" class="w3-button w3-medium w3-display-topright">&times;</span>
+				<p>Don't enter anything else!
+				</p>
+			</div>
+			<div class="w3-center">
+				<input type="text" id="youContentInputElement" autofocus>
+				<button class="w3-button w3-indigo w3-round-xlarge" onclick="setContentFromInput()">Go</button>
+			</div>
+			<br>
+			<div class="w3-center">
+				<button id="autoChangeStartButton" class="w3-button w3-teal w3-round-xxlarge" onclick="startAutoChange()">Start Slideshow</button>
+				<button id="autoChangeStopButton" class="w3-button w3-teal w3-round-xxlarge" disabled="true" onclick="stopAutoChange()">Stop Slideshow</button>
+			</div>
+			<br>
+			<div class="w3-bar">
+			  <button class="w3-button w3-left w3-grey" onclick="previousContent()">&laquo; Previous</button>
+			  <button class="w3-button w3-right w3-green" onclick="nextContent()">Next &raquo;</button>
+			</div>
+			
+		</div>
 
+		<div class="w3-third w3-section">
+		</div>
+
+	</div>
 </div>
+<!-- End You header -->
+
+<!-- You content -->
+<div class="w3-container">
+	<div class="w3-row">
+
+		<div class="w3-third w3-section">
+		</div>
+
+		<div class="w3-third w3-section">
+			<div class="w3-card-4">
+				<img id="youImg" src="you/images/1.jpg" style="width:100%">
+				<div class="w3-container w3-white w3-opacity">
+					<h4 id="youText">You.</h4>
+				</div>
+			</div>
+		</div>
+
+		<div class="w3-third w3-section">
+		</div>
+
+	</div>
 </div>
+<!-- End You content -->
 
 <!-- Footer -->
 <div class="w3-container w3-padding-16 w3-center w3-opacity"  style="margin-top:128px"> 
@@ -51,8 +97,14 @@ function randomIntFromInterval(min, max) { // min and max included
   return Math.floor(Math.random() * (max - min + 1) + min);
 }
 
+function between(x, min, max) {
+  return x >= min && x <= max;
+}
+
 var youTextElement = document.getElementById("youText");
 var youImgElement = document.getElementById("youImg");
+var autoChangeStartButton = document.getElementById("autoChangeStartButton");
+var autoChangeStopButton = document.getElementById("autoChangeStopButton");
 
 var imgSrc = "you/images/";
 var imgExt = ".jpg";
@@ -74,13 +126,20 @@ var youTexts = ["You've got this!",
 				"Sometimes you may get distracted but don't forget how cool it is that you even exist.",
 				"It's okay to put yourself first.",
 				"Life is too short to be normal. You can be weird.",
-				"You're worth loving",
-				"There are times when you don't really know what you're feeling but there's a lot of it in there."
+				"You're worth loving.",
+				"There are times when you don't really know what you're feeling but there's a lot of it in there. This is normal."
 			];
 var youContentLength = youTexts.length;
 var startNumber = randomIntFromInterval(1,youContentLength);
 var currentNumber = startNumber;
 var nextNumber = 0;
+var previousNumber = 0;
+
+
+var youContentLengthElement = document.getElementById("youContentLengthElement");
+youContentLengthElement.innerHTML = youContentLength;
+var youContentInputElement = document.getElementById("youContentInputElement");
+var interval;
 
 function youText(number) {
 	return youTexts[number - 1];
@@ -91,9 +150,12 @@ function youImg(number) {
 	return youImg;
 }
 
-youTextElement.innerHTML = youText(startNumber);
-youImgElement.src = youImg(startNumber);
+function setContent(no) {
+	youTextElement.innerHTML = youText(no);
+	youImgElement.src = youImg(no);
+}
 
+setContent(startNumber);
 
 function getNextNumber() {
 	switch(true) {
@@ -107,14 +169,70 @@ function getNextNumber() {
 	return nextNumber;
 }
 
+function getPreviousNumber() {
+	switch(true) {
+		case currentNumber <= 1:
+			previousNumber = youContentLength;
+			break;
+		case currentNumber > 1:
+			previousNumber = currentNumber - 1;
+			break;
+	}
+	return previousNumber;
+}
+
+function nextContent() {
+	currentNumber = getNextNumber();
+	setContent(currentNumber);
+}
+
+function previousContent() {
+	currentNumber = getPreviousNumber();
+	setContent(currentNumber);
+}
+
+function isPositiveInteger(n) {
+    return 0 === n % (!isNaN(parseFloat(n)) && 0 <= ~~n);
+}
+
+function setContentFromInput() {
+	var userInputValue = youContentInputElement.value;
+	if (between(userInputValue, 1, youContentLength) && isPositiveInteger(userInputValue)) {
+		setContent(userInputValue);
+	} else {
+		setErrorContent(userInputValue);
+	}
+}
+
+function setErrorContent(userInputValue) {
+	var youErrorText;
+	if (isPositiveInteger(userInputValue)) {
+		youErrorText = "You're entering dangerous territory.";
+	} else {
+		youErrorText = "Look at you being all adventurous.";
+	}
+	youTextElement.innerHTML = youErrorText;
+	youImgElement.src = "you/images/icon.jpg";
+}
+
 function loopThroughContent() {
 	currentNumber = getNextNumber();
-	youTextElement.innerHTML = youText(currentNumber);
-	youImgElement.src = youImg(currentNumber);
+	setContent(currentNumber);
 }
 
 
-setInterval(loopThroughContent, 4000);
+function startAutoChange() {
+	interval = setInterval(loopThroughContent, 5000);
+	autoChangeStartButton.disabled = true;
+	autoChangeStopButton.disabled = false;
+}
+
+function stopAutoChange() {
+	clearInterval(interval);
+	interval = 0;
+	autoChangeStartButton.disabled = false;
+	autoChangeStopButton.disabled = true;
+}
 
 <!-- End Javascript Content -->
 </script>
