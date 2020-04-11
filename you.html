@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <title>You</title>
-<link rel="icon" href="AWESOMENESS/Images/icon.png" type = "image/x-icon"> 
+<link rel="icon" href="you/images/icon.jpg" type = "image/x-icon"> 
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
@@ -20,9 +20,9 @@ body {font-family: "Montserrat", sans-serif}
 
 <div class="w3-third w3-section">
 <div class="w3-card-4">
-<img id="youImg" src="AWESOMENESS/Images/Maple/1.jpg" style="width:100%">
+<img id="youImg" src="you/images/1.jpg" style="width:100%">
 <div class="w3-container w3-white w3-opacity">
-<h4 id="youText">Cinque Terre</h4>
+<h4 id="youText">You.</h4>
 </div>
 </div>
 
@@ -33,7 +33,7 @@ body {font-family: "Montserrat", sans-serif}
 </div>
 
 <!-- Footer -->
-<div class="w3-container w3-padding-16 w3-center w3-opacity"> 
+<div class="w3-container w3-padding-16 w3-center w3-opacity"  style="margin-top:128px"> 
 <!--  <i class="fa fa-facebook-official w3-hover-opacity"></i>
   <i class="fa fa-instagram w3-hover-opacity"></i>
   <i class="fa fa-snapchat w3-hover-opacity"></i>
@@ -54,13 +54,36 @@ function randomIntFromInterval(min, max) { // min and max included
 var youTextElement = document.getElementById("youText");
 var youImgElement = document.getElementById("youImg");
 
-var imgSrc = "AWESOMENESS/Images/Maple/";
+var imgSrc = "you/images/";
 var imgExt = ".jpg";
+var youTexts = ["You've got this!", 
+				"You're amazing just the way you are.", 
+				"Whoever's reading this, hope you're having a great day.", 
+				"You're stronger than you think.", 
+				"You're never fully dressed without a smile.", 
+				"Look at the stars. Look how they shine for you.",
+				"Don't ever let somebody tell you that you can't do something.",
+				"You are not alone.",
+				"Set the example. You never know who is looking up to you.",
+				"Whatever you're doing today, do it with the confidence of a 4 year old in a Batman t-shirt.",
+				"Take a chance. You never know what might happen.",
+				"Turn the page. Maybe you'll find a brand new ending.",
+				"You can be a good person with a kind heart and still say no.",
+				"You can find beauty even in the ugliest days.",
+				"Sometimes you gotta be happy for no reason.",
+				"Sometimes you may get distracted but don't forget how cool it is that you even exist.",
+				"It's okay to put yourself first.",
+				"Life is too short to be normal. You can be weird.",
+				"You're worth loving",
+				"There are times when you don't really know what you're feeling but there's a lot of it in there."
+			];
+var youContentLength = youTexts.length;
+var startNumber = randomIntFromInterval(1,youContentLength);
+var currentNumber = startNumber;
+var nextNumber = 0;
 
 function youText(number) {
-    number = number - 1;
-	var youTexts = ["You've got this!", "You're amazing just the way you are.", "Whoever's reading this, hope you're having a great day", "Thank you!"]
-	return youTexts[number];
+	return youTexts[number - 1];
 }
 
 function youImg(number) {
@@ -68,15 +91,30 @@ function youImg(number) {
 	return youImg;
 }
 
-function altYouContent() {
-	var number = randomIntFromInterval(1,4);
-	youTextElement.innerHTML = youText(number);
-	youImgElement.src = youImg(number);
+youTextElement.innerHTML = youText(startNumber);
+youImgElement.src = youImg(startNumber);
+
+
+function getNextNumber() {
+	switch(true) {
+		case currentNumber >= youContentLength:
+			nextNumber = 1;
+			break;
+		case currentNumber < youContentLength:
+			nextNumber = currentNumber + 1;
+			break;
+	}
+	return nextNumber;
 }
 
-altYouContent();
+function loopThroughContent() {
+	currentNumber = getNextNumber();
+	youTextElement.innerHTML = youText(currentNumber);
+	youImgElement.src = youImg(currentNumber);
+}
 
-setInterval(altYouContent, 4000);
+
+setInterval(loopThroughContent, 4000);
 
 <!-- End Javascript Content -->
 </script>
