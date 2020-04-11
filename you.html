@@ -115,19 +115,24 @@ var youTexts = ["You've got this!",
 				"You're never fully dressed without a smile.", 
 				"Look at the stars. Look how they shine for you.",
 				"Don't ever let somebody tell you that you can't do something.",
-				"You are not alone.",
-				"Set the example. You never know who is looking up to you.",
+				"You are not alone!",
 				"Whatever you're doing today, do it with the confidence of a 4 year old in a Batman t-shirt.",
-				"Take a chance. You never know what might happen.",
-				"Turn the page. Maybe you'll find a brand new ending.",
+				"Take a chance! You never know what might happen.",
+				"Turn the page. You might find a brand new ending.",
 				"You can be a good person with a kind heart and still say no.",
 				"You can find beauty even in the ugliest days.",
 				"Sometimes you gotta be happy for no reason.",
 				"Sometimes you may get distracted but don't forget how cool it is that you even exist.",
 				"It's okay to put yourself first.",
-				"Life is too short to be normal. You can be weird.",
+				"Life is too short to be normal. You can be weird!",
 				"You're worth loving.",
-				"There are times when you don't really know what you're feeling but there's a lot of it in there. This is normal."
+				"There are times when you don't really know what you're feeling but there's a lot of it in there. That is normal.",
+				"In the midst of where you're going, don't forget to enjoy where you are.",
+				"Whatever you're feeling is alright.",
+				"You can't heal what you don't let yourself feel!",
+				"You don't have to be perfect to be loved.",
+				"Thank you for existing.",
+				"Reaffirm what you love about yourself today and everyday."
 			];
 var youContentLength = youTexts.length;
 var startNumber = randomIntFromInterval(1,youContentLength);
@@ -198,7 +203,8 @@ function isPositiveInteger(n) {
 function setContentFromInput() {
 	var userInputValue = youContentInputElement.value;
 	if (between(userInputValue, 1, youContentLength) && isPositiveInteger(userInputValue)) {
-		setContent(userInputValue);
+		currentNumber = parseInt(userInputValue);
+		setContent(currentNumber);
 	} else {
 		setErrorContent(userInputValue);
 	}
