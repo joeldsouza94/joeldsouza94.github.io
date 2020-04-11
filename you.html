@@ -108,31 +108,31 @@ var autoChangeStopButton = document.getElementById("autoChangeStopButton");
 
 var imgSrc = "you/images/";
 var imgExt = ".jpg";
-var youTexts = ["You've got this!", 
-				"You're amazing just the way you are.", 
-				"Whoever's reading this, hope you're having a great day.", 
-				"You're stronger than you think.", 
-				"You're never fully dressed without a smile.", 
-				"Look at the stars. Look how they shine for you.",
-				"Don't ever let somebody tell you that you can't do something.",
-				"You are not alone!",
-				"Whatever you're doing today, do it with the confidence of a 4 year old in a Batman t-shirt.",
-				"Take a chance! You never know what might happen.",
-				"Turn the page. You might find a brand new ending.",
-				"You can be a good person with a kind heart and still say no.",
-				"You can find beauty even in the ugliest days.",
-				"Sometimes you gotta be happy for no reason.",
-				"Sometimes you may get distracted but don't forget how cool it is that you even exist.",
-				"It's okay to put yourself first.",
-				"Life is too short to be normal. You can be weird!",
-				"You're worth loving.",
-				"There are times when you don't really know what you're feeling but there's a lot of it in there. That is normal.",
-				"In the midst of where you're going, don't forget to enjoy where you are.",
-				"Whatever you're feeling is alright.",
-				"You can't heal what you don't let yourself feel!",
-				"You don't have to be perfect to be loved.",
-				"Thank you for existing.",
-				"Reaffirm what you love about yourself today and everyday."
+var youTexts = ["<span class='w3-text-teal'>You</span>'ve got this!", 
+				"<span class='w3-text-teal'>You</span>'re amazing just the way <span class='w3-text-teal'>you</span> are.", 
+				"Whoever's reading this, hope <span class='w3-text-teal'>you</span>'re having a great day.", 
+				"<span class='w3-text-teal'>You</span>'re stronger than <span class='w3-text-teal'>you</span> think.", 
+				"<span class='w3-text-teal'>You</span>'re never fully dressed without a smile.", 
+				"Look at the stars. Look how they shine for <span class='w3-text-teal'>you</span>.",
+				"Don't ever let somebody tell <span class='w3-text-teal'>you</span> that <span class='w3-text-teal'>you</span> can't do something.",
+				"<span class='w3-text-teal'>You</span> are not alone!",
+				"Whatever <span class='w3-text-teal'>you</span>'re doing today, do it with the confidence of a 4 year old in a Batman t-shirt.",
+				"Take a chance! <span class='w3-text-teal'>You</span> never know what might happen.",
+				"Turn the page. <span class='w3-text-teal'>You</span> might find a brand new ending.",
+				"<span class='w3-text-teal'>You</span> can be a good person with a kind heart and still say no.",
+				"<span class='w3-text-teal'>You</span> can find beauty even in the ugliest days.",
+				"Sometimes <span class='w3-text-teal'>you</span> gotta be happy for no reason.",
+				"Sometimes <span class='w3-text-teal'>you</span> may get distracted but don't forget how cool it is that <span class='w3-text-teal'>you</span> even exist.",
+				"It's okay to put <span class='w3-text-teal'>you</span>rself first.",
+				"Life is too short to be normal. <span class='w3-text-teal'>You</span> can be weird!",
+				"<span class='w3-text-teal'>You</span>'re worth loving.",
+				"There are times when <span class='w3-text-teal'>you</span> don't really know what <span class='w3-text-teal'>you</span>'re feeling but there's a lot of it in there. That is normal.",
+				"In the midst of where <span class='w3-text-teal'>you</span>'re going, don't forget to enjoy where <span class='w3-text-teal'>you</span> are.",
+				"Whatever <span class='w3-text-teal'>you</span>'re feeling is alright.",
+				"<span class='w3-text-teal'>You</span> can't heal what <span class='w3-text-teal'>you</span> don't let <span class='w3-text-teal'>your</span>self feel!",
+				"<span class='w3-text-teal'>You</span> don't have to be perfect to be loved.",
+				"Thank <span class='w3-text-teal'>you</span> for existing.",
+				"Reaffirm what <span class='w3-text-teal'>you</span> love about <span class='w3-text-teal'>you</span>rself today and everyday."
 			];
 var youContentLength = youTexts.length;
 var startNumber = randomIntFromInterval(1,youContentLength);
@@ -213,9 +213,9 @@ function setContentFromInput() {
 function setErrorContent(userInputValue) {
 	var youErrorText;
 	if (isPositiveInteger(userInputValue)) {
-		youErrorText = "You're entering dangerous territory.";
+		youErrorText = "<span class='w3-text-red'>You</span>'re entering dangerous territory.";
 	} else {
-		youErrorText = "Look at you being all adventurous.";
+		youErrorText = "Look at <span class='w3-text-red'>you</span> being all adventurous.";
 	}
 	youTextElement.innerHTML = youErrorText;
 	youImgElement.src = "you/images/icon.jpg";
