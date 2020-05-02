@@ -11,6 +11,7 @@
 body,h1 {font-family: "Montserrat", sans-serif}
 img {margin-bottom: -7px}
 .w3-row-padding img {margin-bottom: 12px}
+.pointer:hover {cursor: pointer;}
 </style>
 <body>
 
@@ -20,7 +21,7 @@ img {margin-bottom: -7px}
     <i class="fa fa-remove"></i>
   </a>
   <div class="w3-bar-block w3-center" id="contentMessage" style="display:none">
-    <p class="w3-medium">Click the images</p>
+    <p class="w3-medium"><i>Click the images!</i></p>
   </div>
   <div class="w3-bar-block w3-center" id="contentBar" style="display:none">
     <h1 id="langText"><b>AWESOMENESS</b></h1>
@@ -44,6 +45,11 @@ img {margin-bottom: -7px}
 <header class="w3-center w3-margin-bottom">
   <h1><b>AWESOMENESS</b></h1>
   <p><b>Hope this does the job.</b></p>
+  <div class="w3-panel w3-blue w3-display-container">
+	<span onclick="this.parentElement.style.display='none'" class="w3-button w3-large w3-display-topright">&times;</span>
+	<p>Click on the images below!
+	</p>
+  </div>
   <p class="w3-padding-16"><button class="w3-button w3-black" onclick="myFunction()">Toggle Grid Padding</button></p>
 </header>
 </div>
@@ -51,37 +57,37 @@ img {margin-bottom: -7px}
 <!-- Photo Grid -->
 <div class="w3-row" id="myGrid" style="margin-bottom:128px">
   <div class="w3-quarter">
-    <div class="w3-card w3-hover-shadow" onclick="openContent(this)" id="Austrian">
+    <div class="w3-card w3-hover-shadow pointer" onclick="openContent(this)" id="Austrian">
       <img class="w3-hover-opacity" src="AWESOMENESS/Images/Maple/1.jpg" style="width:100%">
       <div class="w3-container">
         <h6>Austrian</h6><hr>
       </div>
     </div>
-    <div class="w3-card w3-hover-shadow" onclick="openContent(this)" id="Bosnian">
+    <div class="w3-card w3-hover-shadow pointer" onclick="openContent(this)" id="Bosnian">
       <img class="w3-hover-opacity" src="AWESOMENESS/Images/puppy/2.jpg" style="width:100%">
       <div class="w3-container">
         <h6>Bosnian</h6><hr>
       </div>
     </div>
-    <div class="w3-card w3-hover-shadow" onclick="openContent(this)" id="Danish">
+    <div class="w3-card w3-hover-shadow pointer" onclick="openContent(this)" id="Danish">
       <img class="w3-hover-opacity" src="AWESOMENESS/Images/Hamlet/3.jpg" style="width:100%">
       <div class="w3-container">
         <h6>Danish</h6><hr>
       </div>
     </div>
-    <div class="w3-card w3-hover-shadow" onclick="openContent(this)" id="Dutch">
+    <div class="w3-card w3-hover-shadow pointer" onclick="openContent(this)" id="Dutch">
       <img class="w3-hover-opacity" src="AWESOMENESS/Images/Lucas/4.jpg" style="width:100%">
       <div class="w3-container">
         <h6>Dutch</h6><hr>
       </div>
     </div>
-    <div class="w3-card w3-hover-shadow" onclick="openContent(this)" id="Estonian">
+    <div class="w3-card w3-hover-shadow pointer" onclick="openContent(this)" id="Estonian">
       <img class="w3-hover-opacity" src="AWESOMENESS/Images/Maple/5.jpg" style="width:100%">
       <div class="w3-container">
         <h6>Estonian</h6><hr>
       </div>
     </div>
-    <div class="w3-card w3-hover-shadow" onclick="openContent(this)" id="Finnish">
+    <div class="w3-card w3-hover-shadow pointer" onclick="openContent(this)" id="Finnish">
       <img class="w3-hover-opacity" src="AWESOMENESS/Images/puppy/6.jpg" style="width:100%">
       <div class="w3-container">
         <h6>Finnish</h6><hr>
@@ -90,37 +96,37 @@ img {margin-bottom: -7px}
   </div>
 
   <div class="w3-quarter">
-    <div class="w3-card w3-hover-shadow" onclick="openContent(this)" id="French">
+    <div class="w3-card w3-hover-shadow pointer" onclick="openContent(this)" id="French">
       <img class="w3-hover-opacity" src="AWESOMENESS/Images/Lucas/1.jpg" style="width:100%">
       <div class="w3-container">
         <h6>French</h6><hr>
       </div>
     </div>
-    <div class="w3-card w3-hover-shadow" onclick="openContent(this)" id="German">
+    <div class="w3-card w3-hover-shadow pointer" onclick="openContent(this)" id="German">
       <img class="w3-hover-opacity" src="AWESOMENESS/Images/Hamlet/2.jpg" style="width:100%">
       <div class="w3-container">
         <h6>German</h6><hr>
       </div>
     </div>
-    <div class="w3-card w3-hover-shadow" onclick="openContent(this)" id="Greek">
+    <div class="w3-card w3-hover-shadow pointer" onclick="openContent(this)" id="Greek">
       <img class="w3-hover-opacity" src="AWESOMENESS/Images/Maple/3.jpg" style="width:100%">
       <div class="w3-container">
         <h6>Greek</h6><hr>
       </div>
     </div>
-    <div class="w3-card w3-hover-shadow" onclick="openContent(this)" id="Hungarian">
+    <div class="w3-card w3-hover-shadow pointer" onclick="openContent(this)" id="Hungarian">
       <img class="w3-hover-opacity" src="AWESOMENESS/Images/puppy/4.jpg" style="width:100%">
       <div class="w3-container">
         <h6>Hungarian</h6><hr>
       </div>
     </div>
-    <div class="w3-card w3-hover-shadow" onclick="openContent(this)" id="Indonesian">
+    <div class="w3-card w3-hover-shadow pointer" onclick="openContent(this)" id="Indonesian">
       <img class="w3-hover-opacity" src="AWESOMENESS/Images/Lucas/5.jpg" style="width:100%">
       <div class="w3-container">
         <h6>Indonesian</h6><hr>
       </div>
     </div>
-    <div class="w3-card w3-hover-shadow" onclick="openContent(this)" id="Italian">
+    <div class="w3-card w3-hover-shadow pointer" onclick="openContent(this)" id="Italian">
       <img class="w3-hover-opacity" src="AWESOMENESS/Images/Hamlet/6.jpg" style="width:100%">
       <div class="w3-container">
         <h6>Italian</h6><hr>
@@ -129,37 +135,37 @@ img {margin-bottom: -7px}
   </div>
 
   <div class="w3-quarter">
-    <div class="w3-card w3-hover-shadow" onclick="openContent(this)" id="Japanese">
+    <div class="w3-card w3-hover-shadow pointer" onclick="openContent(this)" id="Japanese">
       <img class="w3-hover-opacity" src="AWESOMENESS/Images/Hamlet/1.jpg" style="width:100%">
       <div class="w3-container">
         <h6>Japanese</h6><hr>
       </div>
     </div>
-    <div class="w3-card w3-hover-shadow" onclick="openContent(this)" id="Latvian">
+    <div class="w3-card w3-hover-shadow pointer" onclick="openContent(this)" id="Latvian">
       <img class="w3-hover-opacity" src="AWESOMENESS/Images/Lucas/2.jpg" style="width:100%">
       <div class="w3-container">
         <h6>Latvian</h6><hr>
       </div>
     </div>
-    <div class="w3-card w3-hover-shadow" onclick="openContent(this)" id="Macedonian">
+    <div class="w3-card w3-hover-shadow pointer" onclick="openContent(this)" id="Macedonian">
       <img class="w3-hover-opacity" src="AWESOMENESS/Images/puppy/3.jpg" style="width:100%">
       <div class="w3-container">
         <h6>Macedonian</h6><hr>
       </div>
     </div>
-    <div class="w3-card w3-hover-shadow" onclick="openContent(this)" id="Mandarin">
+    <div class="w3-card w3-hover-shadow pointer" onclick="openContent(this)" id="Mandarin">
       <img class="w3-hover-opacity" src="AWESOMENESS/Images/Maple/4.jpg" style="width:100%">
       <div class="w3-container">
         <h6>Mandarin</h6><hr>
       </div>
     </div>
-    <div class="w3-card w3-hover-shadow" onclick="openContent(this)" id="Norwegian">
+    <div class="w3-card w3-hover-shadow pointer" onclick="openContent(this)" id="Norwegian">
       <img class="w3-hover-opacity" src="AWESOMENESS/Images/Hamlet/5.jpg" style="width:100%">
       <div class="w3-container">
         <h6>Norwegian</h6><hr>
       </div>
     </div>
-    <div class="w3-card w3-hover-shadow" onclick="openContent(this)" id="Portuguese">
+    <div class="w3-card w3-hover-shadow pointer" onclick="openContent(this)" id="Portuguese">
       <img class="w3-hover-opacity" src="AWESOMENESS/Images/Lucas/6.jpg" style="width:100%">
       <div class="w3-container">
         <h6>Portuguese</h6><hr>
@@ -168,37 +174,37 @@ img {margin-bottom: -7px}
   </div>
 
   <div class="w3-quarter">
-    <div class="w3-card w3-hover-shadow" onclick="openContent(this)" id="Romanian">
+    <div class="w3-card w3-hover-shadow pointer" onclick="openContent(this)" id="Romanian">
       <img class="w3-hover-opacity" src="AWESOMENESS/Images/puppy/1.jpg" style="width:100%">
       <div class="w3-container">
         <h6>Romanian</h6><hr>
       </div>
     </div>
-    <div class="w3-card w3-hover-shadow" onclick="openContent(this)" id="Russian">
+    <div class="w3-card w3-hover-shadow pointer" onclick="openContent(this)" id="Russian">
       <img class="w3-hover-opacity" src="AWESOMENESS/Images/Maple/2.jpg" style="width:100%">
       <div class="w3-container">
         <h6>Russian</h6><hr>
       </div>
     </div>
-    <div class="w3-card w3-hover-shadow" onclick="openContent(this)" id="Slovak">
+    <div class="w3-card w3-hover-shadow pointer" onclick="openContent(this)" id="Slovak">
       <img class="w3-hover-opacity" src="AWESOMENESS/Images/Lucas/3.jpg" style="width:100%">
       <div class="w3-container">
         <h6>Slovak</h6><hr>
       </div>
     </div>
-    <div class="w3-card w3-hover-shadow" onclick="openContent(this)" id="Slovenian">
+    <div class="w3-card w3-hover-shadow pointer" onclick="openContent(this)" id="Slovenian">
       <img class="w3-hover-opacity" src="AWESOMENESS/Images/Hamlet/4.jpg" style="width:100%">
       <div class="w3-container">
         <h6>Slovenian</h6><hr> 
       </div>
     </div>
-    <div class="w3-card w3-hover-shadow" onclick="openContent(this)" id="Spanish">
+    <div class="w3-card w3-hover-shadow pointer" onclick="openContent(this)" id="Spanish">
       <img class="w3-hover-opacity" src="AWESOMENESS/Images/puppy/5.jpg" style="width:100%">
       <div class="w3-container">
         <h6>Spanish</h6><hr>
       </div>
     </div>
-    <div class="w3-card w3-hover-shadow" onclick="openContent(this)" id="Turkish">
+    <div class="w3-card w3-hover-shadow pointer" onclick="openContent(this)" id="Turkish">
       <img class="w3-hover-opacity" src="AWESOMENESS/Images/Maple/6.jpg" style="width:100%">
       <div class="w3-container">
         <h6>Turkish</h6><hr>
@@ -219,7 +225,7 @@ img {margin-bottom: -7px}
   <i class="fa fa-pinterest-p w3-hover-opacity"></i>
   <i class="fa fa-twitter w3-hover-opacity"></i>
   <i class="fa fa-linkedin w3-hover-opacity"></i>-->
-  <p class="w3-medium">Powered by <p class="w3-small w3-hover-text-green">Joel</p></p>
+  <p class="w3-medium">Powered by <p class="w3-small w3-hover-text-green"><a href="index.html" target="blank" style="text-decoration:none">Joel</a></p></p>
 </footer>
  
 <script>
