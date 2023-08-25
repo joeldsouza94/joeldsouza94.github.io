@@ -57,10 +57,10 @@ img {margin-bottom: -7px}
 <!-- Photo Grid -->
 <div class="w3-row" id="myGrid" style="margin-bottom:128px">
   <div class="w3-quarter">
-    <div class="w3-card w3-hover-shadow pointer" onclick="openContent(this)" id="Austrian">
+    <div class="w3-card w3-hover-shadow pointer" onclick="openContent(this)" id="Spanish">
       <img class="w3-hover-opacity" src="saurs/images/Maple/1.jpg" style="width:100%">
       <div class="w3-container">
-        <h6>Austrian</h6><hr>
+        <h6>¡Feliz cumpleaños!</h6><hr>
       </div>
     </div>
     <div class="w3-card w3-hover-shadow pointer" onclick="openContent(this)" id="Bosnian">
@@ -269,10 +269,10 @@ function openContent(elem) {
   document.getElementById("mySidebar").style.display = "block";
   document.getElementById("contentBar").style.display = "block";
   switch(elem.id) {
-  case "Austrian":
-    langText.innerHTML = "Du bist ur leiwand, oida!";
+  case "Spanish":
+    langText.innerHTML = "Te deseo lo mejor en el año que viene.";
     audioElement.src = "saurs/audio/" + elem.id + ".mp3";
-    lang.innerHTML = elem.id;
+    lang.innerHTML = elem.innerHTML;
     break;
   case "Bosnian":
     langText.innerHTML = "Ti si super";
