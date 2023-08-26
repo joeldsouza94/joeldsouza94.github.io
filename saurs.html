@@ -1,224 +1,85 @@
 <!DOCTYPE html>
 <html>
-<title>Happy birthday!</title>
-<link rel="icon" href="saurs/images/lionlogo.png" type = "image/x-icon"> 
+<title>You</title>
+<link rel="icon" href="you/images/icon.jpg" type = "image/x-icon"> 
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <style>
-body,h1 {font-family: "Montserrat", sans-serif}
-img {margin-bottom: -7px}
-.w3-row-padding img {margin-bottom: 12px}
-.pointer:hover {cursor: pointer;}
+body {font-family: "Montserrat", sans-serif}
 </style>
-<body>
+<body class="w3-light-grey">
 
-<!-- Sidebar -->
-<nav class="w3-sidebar w3-black w3-animate-top w3-xxlarge" style="display:none;padding-top:150px" id="mySidebar">
-  <a href="javascript:void(0)" onclick="w3_close()" class="w3-button w3-black w3-xxlarge w3-padding w3-display-topright" style="padding:6px 24px">
-    <i class="fa fa-remove"></i>
-  </a>
-  <div class="w3-bar-block w3-center" id="contentMessage" style="display:none">
-    <p class="w3-medium"><i>Click on the images on the page!</i></p>
-  </div>
-  <div class="w3-bar-block w3-center" id="contentBar" style="display:none">
-    <h1 id="langText"><b>Happy birthday!</b></h1>
-    <i class="fa fa-play w3-hover-sepia w3-button w3-border w3-border-blue w3-hover-border-red w3-round" onclick="togglePlay()" id="audioButton">
-      <audio id="langAudio">
-        <source src="horse.mp3" type="audio/mp3">
-        Your browser does not support the audio element.
-      </audio>
-    </i>
-    <p class="w3-large" id="lang">English</p>
-  </div>
-</nav>
+<!-- You header -->
+<div class="w3-container">
+	<div class="w3-row">
 
-<!-- !PAGE CONTENT! -->
-<div class="w3-content" style="max-width:1500px">
+		<div class="w3-third w3-section">
+		</div>
 
-<!-- Header -->
-<div class="w3-opacity">
-<span class="w3-button w3-xxlarge w3-white w3-right" onclick="w3_open()"><i class="fa fa-bars"></i></span> 
-<div class="w3-clear"></div>
-<header class="w3-center w3-margin-bottom">
-  <h1><b>Happy birthday!</b></h1>
-  <p><b>Celebrating <span class="w3-text-green">you</span>.</b></p>
-  <div class="w3-panel w3-blue w3-display-container">
-	<span onclick="this.parentElement.style.display='none'" class="w3-button w3-large w3-display-topright">&times;</span>
-	<p>Click on the images below!
-	</p>
-  </div>
-  <p class="w3-padding-16"><button class="w3-button w3-black" onclick="myFunction()">Toggle Grid Padding</button></p>
-</header>
+		<div class="w3-third w3-section w3-opacity w3-small">
+			
+			<div class="w3-panel w3-blue w3-display-container">
+				<span onclick="this.parentElement.style.display='none'" class="w3-button w3-medium w3-display-topright">&times;</span>
+				<p class="w3-margin-right">Enter a number between 1-<span id="youContentLengthElement"></span> in the box below & click Go.
+				</p>
+			</div>
+			<div class="w3-panel w3-red w3-display-container">
+				<span onclick="this.parentElement.style.display='none'" class="w3-button w3-medium w3-display-topright">&times;</span>
+				<p class="w3-margin-right">Don't even dare to enter anything else!
+				</p>
+			</div>
+			<div class="w3-center">
+				<input type="number" id="youContentInputElement" autofocus>
+				<button class="w3-button w3-indigo w3-round-xlarge" onclick="setContentFromInput()">Go</button>
+			</div>
+			<br>
+			<div class="w3-center">
+				<button id="autoChangeStartButton" class="w3-button w3-teal w3-round-xxlarge" onclick="startAutoChange()">Start Slideshow</button>
+				<button id="autoChangeStopButton" class="w3-button w3-teal w3-round-xxlarge" disabled="true" onclick="stopAutoChange()">Stop Slideshow</button>
+			</div>
+			<br>
+			<div class="w3-bar">
+			  <button class="w3-button w3-left w3-grey" onclick="previousContent()">&laquo; Previous</button>
+			  <button class="w3-button w3-right w3-green" onclick="nextContent()">Next &raquo;</button>
+			</div>
+			
+		</div>
+
+		<div class="w3-third w3-section">
+		</div>
+
+	</div>
 </div>
+<!-- End You header -->
 
-<!-- Photo Grid -->
-<div class="w3-row" id="myGrid" style="margin-bottom:128px">
-  <div class="w3-quarter">
-    <div class="w3-card w3-hover-shadow pointer" onclick="openContent(this)" id="Spanish">
-      <img class="w3-hover-opacity" src="saurs/images/Maple/1.jpg" style="width:100%">
-      <div class="w3-container">
-        <h6>¡Feliz cumpleaños!</h6><hr>
-      </div>
-    </div>
-    <div class="w3-card w3-hover-shadow pointer" onclick="openContent(this)" id="Bosnian">
-      <img class="w3-hover-opacity" src="saurs/images/puppy/2.jpg" style="width:100%">
-      <div class="w3-container">
-        <h6>Bosnian</h6><hr>
-      </div>
-    </div>
-    <div class="w3-card w3-hover-shadow pointer" onclick="openContent(this)" id="Danish">
-      <img class="w3-hover-opacity" src="saurs/images/Hamlet/3.jpg" style="width:100%">
-      <div class="w3-container">
-        <h6>Danish</h6><hr>
-      </div>
-    </div>
-    <div class="w3-card w3-hover-shadow pointer" onclick="openContent(this)" id="Dutch">
-      <img class="w3-hover-opacity" src="saurs/images/Lucas/4.jpg" style="width:100%">
-      <div class="w3-container">
-        <h6>Dutch</h6><hr>
-      </div>
-    </div>
-    <div class="w3-card w3-hover-shadow pointer" onclick="openContent(this)" id="Estonian">
-      <img class="w3-hover-opacity" src="saurs/images/Maple/5.jpg" style="width:100%">
-      <div class="w3-container">
-        <h6>Estonian</h6><hr>
-      </div>
-    </div>
-    <div class="w3-card w3-hover-shadow pointer" onclick="openContent(this)" id="Finnish">
-      <img class="w3-hover-opacity" src="saurs/images/puppy/6.jpg" style="width:100%">
-      <div class="w3-container">
-        <h6>Finnish</h6><hr>
-      </div>
-    </div>
-  </div>
+<!-- You content -->
+<div class="w3-container">
+	<div class="w3-row">
 
-  <div class="w3-quarter">
-    <div class="w3-card w3-hover-shadow pointer" onclick="openContent(this)" id="French">
-      <img class="w3-hover-opacity" src="saurs/images/Lucas/1.jpg" style="width:100%">
-      <div class="w3-container">
-        <h6>French</h6><hr>
-      </div>
-    </div>
-    <div class="w3-card w3-hover-shadow pointer" onclick="openContent(this)" id="German">
-      <img class="w3-hover-opacity" src="saurs/images/Hamlet/2.jpg" style="width:100%">
-      <div class="w3-container">
-        <h6>German</h6><hr>
-      </div>
-    </div>
-    <div class="w3-card w3-hover-shadow pointer" onclick="openContent(this)" id="Greek">
-      <img class="w3-hover-opacity" src="saurs/images/Maple/3.jpg" style="width:100%">
-      <div class="w3-container">
-        <h6>Greek</h6><hr>
-      </div>
-    </div>
-    <div class="w3-card w3-hover-shadow pointer" onclick="openContent(this)" id="Hungarian">
-      <img class="w3-hover-opacity" src="saurs/images/puppy/4.jpg" style="width:100%">
-      <div class="w3-container">
-        <h6>Hungarian</h6><hr>
-      </div>
-    </div>
-    <div class="w3-card w3-hover-shadow pointer" onclick="openContent(this)" id="Indonesian">
-      <img class="w3-hover-opacity" src="saurs/images/Lucas/5.jpg" style="width:100%">
-      <div class="w3-container">
-        <h6>Indonesian</h6><hr>
-      </div>
-    </div>
-    <div class="w3-card w3-hover-shadow pointer" onclick="openContent(this)" id="Italian">
-      <img class="w3-hover-opacity" src="saurs/images/Hamlet/6.jpg" style="width:100%">
-      <div class="w3-container">
-        <h6>Italian</h6><hr>
-      </div>
-    </div>
-  </div>
+		<div class="w3-third w3-section">
+		</div>
 
-  <div class="w3-quarter">
-    <div class="w3-card w3-hover-shadow pointer" onclick="openContent(this)" id="Japanese">
-      <img class="w3-hover-opacity" src="saurs/images/Hamlet/1.jpg" style="width:100%">
-      <div class="w3-container">
-        <h6>Japanese</h6><hr>
-      </div>
-    </div>
-    <div class="w3-card w3-hover-shadow pointer" onclick="openContent(this)" id="Latvian">
-      <img class="w3-hover-opacity" src="saurs/images/Lucas/2.jpg" style="width:100%">
-      <div class="w3-container">
-        <h6>Latvian</h6><hr>
-      </div>
-    </div>
-    <div class="w3-card w3-hover-shadow pointer" onclick="openContent(this)" id="Macedonian">
-      <img class="w3-hover-opacity" src="saurs/images/puppy/3.jpg" style="width:100%">
-      <div class="w3-container">
-        <h6>Macedonian</h6><hr>
-      </div>
-    </div>
-    <div class="w3-card w3-hover-shadow pointer" onclick="openContent(this)" id="Mandarin">
-      <img class="w3-hover-opacity" src="saurs/images/Maple/4.jpg" style="width:100%">
-      <div class="w3-container">
-        <h6>Mandarin</h6><hr>
-      </div>
-    </div>
-    <div class="w3-card w3-hover-shadow pointer" onclick="openContent(this)" id="Norwegian">
-      <img class="w3-hover-opacity" src="saurs/images/Hamlet/5.jpg" style="width:100%">
-      <div class="w3-container">
-        <h6>Norwegian</h6><hr>
-      </div>
-    </div>
-    <div class="w3-card w3-hover-shadow pointer" onclick="openContent(this)" id="Portuguese">
-      <img class="w3-hover-opacity" src="saurs/images/Lucas/6.jpg" style="width:100%">
-      <div class="w3-container">
-        <h6>Portuguese</h6><hr>
-      </div>
-    </div>
-  </div>
+		<div class="w3-third w3-section">
+			<div class="w3-card-4">
+				<img id="youImg" src="you/images/1.jpg" style="width:100%">
+				<div class="w3-container w3-white w3-opacity">
+					<h4 id="youText">You.</h4>
+				</div>
+			</div>
+		</div>
 
-  <div class="w3-quarter">
-    <div class="w3-card w3-hover-shadow pointer" onclick="openContent(this)" id="Romanian">
-      <img class="w3-hover-opacity" src="saurs/images/puppy/1.jpg" style="width:100%">
-      <div class="w3-container">
-        <h6>Romanian</h6><hr>
-      </div>
-    </div>
-    <div class="w3-card w3-hover-shadow pointer" onclick="openContent(this)" id="Russian">
-      <img class="w3-hover-opacity" src="saurs/images/Maple/2.jpg" style="width:100%">
-      <div class="w3-container">
-        <h6>Russian</h6><hr>
-      </div>
-    </div>
-    <div class="w3-card w3-hover-shadow pointer" onclick="openContent(this)" id="Slovak">
-      <img class="w3-hover-opacity" src="saurs/images/Lucas/3.jpg" style="width:100%">
-      <div class="w3-container">
-        <h6>Slovak</h6><hr>
-      </div>
-    </div>
-    <div class="w3-card w3-hover-shadow pointer" onclick="openContent(this)" id="Slovenian">
-      <img class="w3-hover-opacity" src="saurs/images/Hamlet/4.jpg" style="width:100%">
-      <div class="w3-container">
-        <h6>Slovenian</h6><hr> 
-      </div>
-    </div>
-    <div class="w3-card w3-hover-shadow pointer" onclick="openContent(this)" id="Spanish">
-      <img class="w3-hover-opacity" src="saurs/images/puppy/5.jpg" style="width:100%">
-      <div class="w3-container">
-        <h6>Spanish</h6><hr>
-      </div>
-    </div>
-    <div class="w3-card w3-hover-shadow pointer" onclick="openContent(this)" id="Turkish">
-      <img class="w3-hover-opacity" src="saurs/images/Maple/6.jpg" style="width:100%">
-      <div class="w3-container">
-        <h6>Turkish</h6><hr>
-      </div>
-    </div>
-  </div>
+		<div class="w3-third w3-section">
+		</div>
 
+	</div>
 </div>
-
-<!-- End Page Content -->
-</div>
+<!-- End You content -->
 
 <!-- Footer -->
-<footer class="w3-container w3-padding-64 w3-light-grey w3-center w3-opacity w3-xlarge" style="margin-top:128px"> 
+<div class="w3-container w3-padding-16 w3-center w3-opacity"  style="margin-top:128px"> 
 <!--  <i class="fa fa-facebook-official w3-hover-opacity"></i>
   <i class="fa fa-instagram w3-hover-opacity"></i>
   <i class="fa fa-snapchat w3-hover-opacity"></i>
@@ -226,189 +87,163 @@ img {margin-bottom: -7px}
   <i class="fa fa-twitter w3-hover-opacity"></i>
   <i class="fa fa-linkedin w3-hover-opacity"></i>-->
   <p class="w3-medium">Powered by <p class="w3-small w3-hover-text-green"><a href="index.html" target="blank" style="text-decoration:none">Joel</a></p></p>
-</footer>
- 
+<!-- End Footer Content -->
+</div>
+
+
+<!-- Javascript -->
 <script>
-
-var audioButton = document.getElementById("audioButton");
-var audioElement = document.getElementById("langAudio");
-
-var langText = document.getElementById("langText");
-var lang = document.getElementById("lang");
-
-// Toggle grid padding
-function myFunction() {
-  var x = document.getElementById("myGrid");
-  if (x.className === "w3-row") {
-    x.className = "w3-row-padding";
-  } else { 
-    x.className = x.className.replace("w3-row-padding", "w3-row");
-  }
+function randomIntFromInterval(min, max) { // min and max included 
+  return Math.floor(Math.random() * (max - min + 1) + min);
 }
 
-// Open and close sidebar
-function w3_open() {
-  document.getElementById("mySidebar").style.width = "100%";
-  document.getElementById("mySidebar").style.display = "block";
-  document.getElementById("contentMessage").style.display = "block";
+function between(x, min, max) {
+  return x >= min && x <= max;
 }
 
-function w3_close() {
-  document.getElementById("mySidebar").style.display = "none";
-  document.getElementById("contentBar").style.display = "none";
-  document.getElementById("contentMessage").style.display = "none";
-  audioElement.pause();
-  audioElement.currentTime = 0;
-  audioButton.className = audioButton.className.replace("fa-stop", "fa-play");
+var youTextElement = document.getElementById("youText");
+var youImgElement = document.getElementById("youImg");
+var autoChangeStartButton = document.getElementById("autoChangeStartButton");
+var autoChangeStopButton = document.getElementById("autoChangeStopButton");
+
+var imgSrc = "you/images/";
+var imgExt = ".jpg";
+var youTexts = ["<span class='w3-text-teal'>You</span>'ve got this!", 
+				"<span class='w3-text-teal'>You</span>'re amazing just the way <span class='w3-text-teal'>you</span> are.", 
+				"Whoever's reading this, hope <span class='w3-text-teal'>you</span>'re having a great day.", 
+				"<span class='w3-text-teal'>You</span>'re stronger than <span class='w3-text-teal'>you</span> think.", 
+				"<span class='w3-text-teal'>You</span>'re never fully dressed without a smile.", 
+				"Look at the stars. Look how they shine for <span class='w3-text-teal'>you</span>.",
+				"Don't ever let somebody tell <span class='w3-text-teal'>you</span> that <span class='w3-text-teal'>you</span> can't do something.",
+				"<span class='w3-text-teal'>You</span> are not alone!",
+				"Whatever <span class='w3-text-teal'>you</span>'re doing today, do it with the confidence of a 4 year old in a Batman t-shirt.",
+				"Take a chance! <span class='w3-text-teal'>You</span> never know what might happen.",
+				"Turn the page. <span class='w3-text-teal'>You</span> might find a brand new ending.",
+				"<span class='w3-text-teal'>You</span> can be a good person with a kind heart and still say no.",
+				"<span class='w3-text-teal'>You</span> can find beauty even in the ugliest days.",
+				"Sometimes <span class='w3-text-teal'>you</span> gotta be happy for no reason.",
+				"Sometimes <span class='w3-text-teal'>you</span> may get distracted but don't forget how cool it is that <span class='w3-text-teal'>you</span> even exist.",
+				"It's okay to put <span class='w3-text-teal'>you</span>rself first.",
+				"Life is too short to be normal. <span class='w3-text-teal'>You</span> can be weird!",
+				"<span class='w3-text-teal'>You</span>'re worth loving.",
+				"There are times when <span class='w3-text-teal'>you</span> don't really know what <span class='w3-text-teal'>you</span>'re feeling but there's a lot of it in there. That is normal.",
+				"In the midst of where <span class='w3-text-teal'>you</span>'re going, don't forget to enjoy where <span class='w3-text-teal'>you</span> are.",
+				"Whatever <span class='w3-text-teal'>you</span>'re feeling is alright.",
+				"<span class='w3-text-teal'>You</span> can't heal what <span class='w3-text-teal'>you</span> don't let <span class='w3-text-teal'>your</span>self feel!",
+				"<span class='w3-text-teal'>You</span> don't have to be perfect to be loved.",
+				"Thank <span class='w3-text-teal'>you</span> for existing.",
+				"Reaffirm what <span class='w3-text-teal'>you</span> love about <span class='w3-text-teal'>you</span>rself today and everyday."
+			];
+var youContentLength = youTexts.length;
+var startNumber = randomIntFromInterval(1,youContentLength);
+var currentNumber = startNumber;
+var nextNumber = 0;
+var previousNumber = 0;
+
+
+var youContentLengthElement = document.getElementById("youContentLengthElement");
+youContentLengthElement.innerHTML = youContentLength;
+var youContentInputElement = document.getElementById("youContentInputElement");
+var interval;
+
+function youText(number) {
+	return youTexts[number - 1];
 }
 
-// Open sidebar with content
-function openContent(elem) {
-  document.getElementById("contentMessage").style.display = "none";
-  document.getElementById("mySidebar").style.width = "100%";
-  document.getElementById("mySidebar").style.display = "block";
-  document.getElementById("contentBar").style.display = "block";
-  switch(elem.id) {
-  case "Spanish":
-    langText.innerHTML = "Te deseo lo mejor en el año que viene.";
-    audioElement.src = "saurs/audio/" + elem.id + ".mp3";
-    lang.innerHTML = "¡Feliz cumpleaños!";
-    break;
-  case "Bosnian":
-    langText.innerHTML = "Ti si super";
-    audioElement.src = "saurs/audio/" + elem.id + ".mp3";
-    lang.innerHTML = elem.id;
-    break;
-  case "Danish":
-    langText.innerHTML = "Du er sej";
-    audioElement.src = "saurs/audio/" + elem.id + ".mp3";
-    lang.innerHTML = elem.id;
-    break;
-  case "Dutch":
-    langText.innerHTML = "Je bent geweldig";
-    audioElement.src = "saurs/audio/" + elem.id + ".mp3";
-    lang.innerHTML = elem.id;
-    break;
-  case "Estonian":
-    langText.innerHTML = "Sa oled äge";
-    audioElement.src = "saurs/audio/" + elem.id + ".mp3";
-    lang.innerHTML = elem.id;
-    break;
-  case "Finnish":
-    langText.innerHTML = "Olet mahtava";
-    audioElement.src = "saurs/audio/" + elem.id + ".mp3";
-    lang.innerHTML = elem.id;
-    break;
-  case "French":
-    langText.innerHTML = "Tu es magnifique";
-    audioElement.src = "saurs/audio/" + elem.id + ".mp3";
-    lang.innerHTML = elem.id;
-    break;
-  case "German":
-    langText.innerHTML = "Du bist der Wahnsinn";
-    audioElement.src = "saurs/audio/" + elem.id + ".mp3";
-    lang.innerHTML = elem.id;
-    break;
-  case "Greek":
-    langText.innerHTML = "Είσαι φοβερός (Eísai foverós)";
-    audioElement.src = "saurs/audio/" + elem.id + ".mp3";
-    lang.innerHTML = elem.id;
-    break;
-  case "Hungarian":
-    langText.innerHTML = "Nagyszerű vagy";
-    audioElement.src = "saurs/audio/" + elem.id + ".mp3";
-    lang.innerHTML = elem.id;
-    break;
-  case "Indonesian":
-    langText.innerHTML = "Kamu luar biasa";
-    audioElement.src = "saurs/audio/" + elem.id + ".mp3";
-    lang.innerHTML = elem.id;
-    break;
-  case "Italian":
-    langText.innerHTML = "Sei fantastico";
-    audioElement.src = "saurs/audio/" + elem.id + ".mp3";
-    lang.innerHTML = elem.id;
-    break;
-  case "Japenese":
-    langText.innerHTML = "あなたは素晴らしいです";
-    audioElement.src = "saurs/audio/" + elem.id + ".mp3";
-    lang.innerHTML = elem.id;
-    break;
-  case "Latvian":
-    langText.innerHTML = "Tu esi lielisks";
-    audioElement.src = "saurs/audio/" + elem.id + ".mp3";
-    lang.innerHTML = elem.id;
-    break;
-  case "Macedonian":
-    langText.innerHTML = "Супер си";
-    audioElement.src = "saurs/audio/" + elem.id + ".mp3";
-    lang.innerHTML = elem.id;
-    break;
-  case "Mandarin":
-    langText.innerHTML = "你真棒";
-    audioElement.src = "saurs/audio/" + elem.id + ".mp3";
-    lang.innerHTML = elem.id;
-    break;
-  case "Norwegian":
-    langText.innerHTML = "Du er fantastisk";
-    audioElement.src = "saurs/audio/" + elem.id + ".mp3";
-    lang.innerHTML = elem.id;
-    break;
-  case "Portuguese":
-    langText.innerHTML = "Você é incrível";
-    audioElement.src = "saurs/audio/" + elem.id + ".mp3";
-    lang.innerHTML = elem.id;
-    break;
-  case "Romanian":
-    langText.innerHTML = "Esti minunat";
-    audioElement.src = "saurs/audio/" + elem.id + ".mp3";
-    lang.innerHTML = elem.id;
-    break;
-  case "Russian":
-    langText.innerHTML = "Ты восхитителен (Ty voskhititelen)";
-    audioElement.src = "saurs/audio/" + elem.id + ".mp3";
-    lang.innerHTML = elem.id;
-    break;
-  case "Slovak":
-    langText.innerHTML = "Si úžasný";
-    audioElement.src = "saurs/audio/" + elem.id + ".mp3";
-    lang.innerHTML = elem.id;
-    break;
-  case "Slovenian":
-    langText.innerHTML = "Ti si neverjeten";
-    audioElement.src = "saurs/audio/" + elem.id + ".mp3";
-    lang.innerHTML = elem.id;
-    break;
-  case "Spanish":
-    langText.innerHTML = "Eres increíble";
-    audioElement.src = "saurs/audio/" + elem.id + ".mp3";
-    lang.innerHTML = elem.id;
-    break;
-  case "Turkish":
-    langText.innerHTML = "Harikasın";
-    audioElement.src = "saurs/audio/" + elem.id + ".mp3";
-    lang.innerHTML = elem.id;
-    break;
-  }
+function youImg(number) {
+	var youImg = imgSrc + number + imgExt;
+	return youImg;
 }
 
-// Play/pause audio
-function togglePlay() {
-    if (audioElement.paused) {
-        audioElement.play();
-        audioButton.className = audioButton.className.replace("fa-play", "fa-stop");
-    }
-    else {
-        audioElement.pause();
-   	audioElement.currentTime = 0;
-        audioButton.className = audioButton.className.replace("fa-stop", "fa-play");
-    }
+function setContent(no) {
+	youImgElement.src = youImg(no);
+	youTextElement.innerHTML = youText(no);
 }
 
-audioElement.onended = function() {
-  audioButton.className = audioButton.className.replace("fa-stop", "fa-play");
-};
+setContent(startNumber);
+
+function getNextNumber() {
+	switch(true) {
+		case currentNumber >= youContentLength:
+			nextNumber = 1;
+			break;
+		case currentNumber < youContentLength:
+			nextNumber = currentNumber + 1;
+			break;
+	}
+	return nextNumber;
+}
+
+function getPreviousNumber() {
+	switch(true) {
+		case currentNumber <= 1:
+			previousNumber = youContentLength;
+			break;
+		case currentNumber > 1:
+			previousNumber = currentNumber - 1;
+			break;
+	}
+	return previousNumber;
+}
+
+function nextContent() {
+	currentNumber = getNextNumber();
+	setContent(currentNumber);
+}
+
+function previousContent() {
+	currentNumber = getPreviousNumber();
+	setContent(currentNumber);
+}
+
+function isPositiveInteger(n) {
+    return 0 === n % (!isNaN(parseFloat(n)) && 0 <= ~~n);
+}
+
+function setContentFromInput() {
+	var userInputValue = youContentInputElement.value;
+	if (between(userInputValue, 1, youContentLength) && isPositiveInteger(userInputValue)) {
+		currentNumber = parseInt(userInputValue);
+		setContent(currentNumber);
+	} else {
+		setErrorContent(userInputValue);
+	}
+}
+
+function setErrorContent(userInputValue) {
+	var youErrorText;
+	if (isPositiveInteger(userInputValue)) {
+		youErrorText = "<span class='w3-text-red'>You</span>'re entering dangerous territory.";
+	} else {
+		youErrorText = "Look at <span class='w3-text-red'>you</span> being all adventurous.";
+	}
+	youTextElement.innerHTML = youErrorText;
+	youImgElement.src = "you/images/icon.jpg";
+	stopAutoChange();
+}
+
+function loopThroughContent() {
+	currentNumber = getNextNumber();
+	setContent(currentNumber);
+}
+
+
+function startAutoChange() {
+	interval = setInterval(loopThroughContent, 5000);
+	autoChangeStartButton.disabled = true;
+	autoChangeStopButton.disabled = false;
+}
+
+function stopAutoChange() {
+	clearInterval(interval);
+	interval = 0;
+	autoChangeStartButton.disabled = false;
+	autoChangeStopButton.disabled = true;
+}
+
+<!-- End Javascript Content -->
 </script>
+
 
 </body>
 </html>
